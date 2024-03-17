@@ -9,21 +9,21 @@ const router = express.Router();
 router.get("/", MovieController.getAllMovies);
 router.get("/:id", MovieController.getMovieById);
 router.post(
-  "/create",
+  "/",
   authorizeUser,
   MovieController.createMovie
 );
 router.put(
-  "/update/:id",
+  "/:id",
   authorizeUser,
   MovieController.updateMovie
 );
 router.patch(
-  "/update/:id",
-  // authorizeUser,
+  "/:id",
+  authorizeUser,
   multer(),
   MovieController.uploadPhoto
 );
-router.delete("/delete/:id", authorizeUser, MovieController.deleteMovie);
+router.delete("/:id", authorizeUser, MovieController.deleteMovie);
 
 module.exports = router;

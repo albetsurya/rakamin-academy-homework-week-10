@@ -47,7 +47,7 @@ const AuthController = {
 
       const token = jwtUtils.generateToken(user.rows[0].id, user.rows[0].role);
       res.json({ token });
-console.log(token)
+      console.log(token);
       return res.status(200).json({ user: user.rows[0], token });
     } catch (error) {
       next(error);
